@@ -12,16 +12,24 @@ function PhotoDetail() {
   const [error, setError] = useState('');
 
   // جلب بيانات الصورة والتعليقات عند تحميل الصفحة
+  // جلب بيانات الصورة والتعليقات عند تحميل الصفحة
   useEffect(() => {
     const fetchData = async () => {
       try {
         const photoRes = await axios.get(`http://localhost:3000/api/photos/${id}`);
         setPhoto(photoRes.data);
+      } catch (err) {
+        console.error('Error fetching photo:', err);
+        setError('حدث خطأ أثناء جلب بيانات الصورة');
+        return;
+      }
 
+      try {
         const commentsRes = await axios.get(`http://localhost:3000/api/photos/${id}/comments`);
         setComments(commentsRes.data);
       } catch (err) {
-        setError('حدث خطأ أثناء جلب البيانات');
+        console.error('Error fetching comments:', err);
+        setComments([]);
       }
     };
     fetchData();
