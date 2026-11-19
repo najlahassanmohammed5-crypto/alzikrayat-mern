@@ -98,3 +98,4 @@ function Gallery() {
 }
 
 export default Gallery;
+// Gallery view toggle
