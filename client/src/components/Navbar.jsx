@@ -55,3 +55,4 @@ function Navbar() {
 }
 
 export default Navbar;
+// Navigation bar component
