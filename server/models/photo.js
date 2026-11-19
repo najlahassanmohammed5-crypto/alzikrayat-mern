@@ -24,3 +24,4 @@ const photoSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 module.exports = mongoose.model('Photo', photoSchema);
+// Photo schema definition
